@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginTitulo"
+        android:background="@color/tituloDialog"
+        android:elevation="2dp"
+        android:fontFamily="sans-serif-light"
+        android:padding="@dimen/paddingTitulo"
+        android:shadowColor="@android:color/darker_gray"
+        android:text="@string/adicione_cerveja"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textSize="@dimen/fontsizeTitulo"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextMarca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:ems="15"
+        android:hint="@string/text_hint_marca"
+        android:inputType="textPersonName"
+        android:padding="@dimen/paddingCampos"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"
+        android:textSize="@dimen/fontsizeCampos"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextValor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:ems="15"
+        android:hint="@string/text_hint_valor"
+        android:inputType="number|numberDecimal"
+        android:padding="@dimen/paddingCampos"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"
+        android:textSize="@dimen/fontsizeCampos"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextMedida"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:ems="15"
+        android:hint="@string/text_hint_medida"
+        android:inputType="number|numberDecimal"
+        android:padding="@dimen/paddingCampos"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"
+        android:textSize="@dimen/fontsizeCampos"
+        android:textStyle="bold" />
+
+</LinearLayout>

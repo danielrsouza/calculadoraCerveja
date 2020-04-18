@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Calculadora De Cerveja</string>
+    <string name="adicione_cerveja">Adicione uma cerveja!</string>
+    <string name="text_hint_marca">Marca</string>
+    <string name="text_hint_valor">Valor</string>
+    <string name="text_hint_medida">Medida</string>
+    <string name="adiciona">Adicione uma cerveja!</string>
+    <string name="editar">Edite uma cerveja!</string>
+    <string name="atualizar">Atualizar cerveja</string>
+    <string name="salvar">Salvar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="toastMarca">A marca não pode ser vazia.</string>
+</resources>

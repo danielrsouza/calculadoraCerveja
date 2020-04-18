@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="marginTitulo">24dp</dimen>
+    <dimen name="paddingTitulo">10dp</dimen>
+    <dimen name="fontsizeTitulo">20dp</dimen>
+
+    <dimen name="fontsizeCampos">20dp</dimen>
+    <dimen name="paddingCampos">10dp</dimen>
+</resources>
