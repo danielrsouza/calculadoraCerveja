@@ -1,8 +1,6 @@
 package com.example.calculadoraDeCerveja
 
-import android.annotation.SuppressLint
 import android.graphics.Color
-import android.graphics.Color.WHITE
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -15,7 +13,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import kotlinx.android.synthetic.main.beer_dialog.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -63,9 +61,7 @@ class MainActivity : AppCompatActivity() {
                 this,
                 recyclerView!!,
                 object : ItemLongPressListener.ClickListener {
-                    override fun onClick(view: View, position: Int) {
-                        TODO("Not yet implemented")
-                    }
+                    override fun onClick(view: View, position: Int) {}
 
                     override fun onLongClick(view: View?, position: Int) {
                         showActionsDialog(position)
@@ -73,6 +69,8 @@ class MainActivity : AppCompatActivity() {
 
                 }
         ))
+
+        calculoCerveja(beersList)
     }
 
     private fun showActionsDialog(position: Int) {
@@ -135,7 +133,7 @@ class MainActivity : AppCompatActivity() {
                 alertDialog.dismiss()
             }
 
-            var beer = Beer(null, marca.text.toString(), valor.text.toString().toDouble(), tamanho.text.toString().toDouble())
+            var beer = Beer(null, marca.text.toString(), valor.text.toString().toDouble(), tamanho.text.toString().toInt())
             createBeerItem(beer)
 
         })
@@ -151,6 +149,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun calculoCerveja(beerList: ArrayList<BeerItemModel>) {
+        var melhorPreco = 999.0
+        for( beer in beerList) {
+            val mediaPreco = (beer.beerValor/beer.beerTamanho) * 1000
+
+            if (mediaPreco < melhorPreco) {
+                melhorPreco = mediaPreco
+                marcaEmConta.text = "Marca: " + beer.beerMarca
+                precoEmConta.text = "Preço: R$ " + beer.beerValor.toString()
+                tamanhoEmConta.text = "Tamanho: " + beer.beerTamanho.toString() + " ML"
+                diferenca.text = "Preço do Litro: " + "%.2f".format(melhorPreco.toString().toDouble()) + " L"
+            }
+        }
+    }
 
     private fun setSupportActionBar(toolbar: Toolbar) {
 
@@ -158,3 +170,4 @@ class MainActivity : AppCompatActivity() {
 
 
 }
+

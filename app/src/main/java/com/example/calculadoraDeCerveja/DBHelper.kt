@@ -20,7 +20,7 @@ class DBHelper (context: Context): SQLiteOpenHelper(context, DB_NAME, null, 1) {
                     beerItem.beerId = cursor.getInt(cursor.getColumnIndex(BeerItemModel.BEER_ID_COLUMN))
                     beerItem.beerMarca = cursor.getString(cursor.getColumnIndex(BeerItemModel.BEER_MARCA_COLUMN))
                     beerItem.beerValor = cursor.getDouble(cursor.getColumnIndex(BeerItemModel.BEER_VALOR_COLUMN))
-                    beerItem.beerTamanho = cursor.getDouble(cursor.getColumnIndex(BeerItemModel.BEER_TAMANHO_COLUMN))
+                    beerItem.beerTamanho = cursor.getInt(cursor.getColumnIndex(BeerItemModel.BEER_TAMANHO_COLUMN))
 
                     beerItens.add(beerItem)
                 } while (cursor.moveToNext())
@@ -66,7 +66,7 @@ class DBHelper (context: Context): SQLiteOpenHelper(context, DB_NAME, null, 1) {
             cursor!!.getInt(cursor.getColumnIndex(BeerItemModel.BEER_ID_COLUMN)),
             cursor.getString(cursor.getColumnIndex(BeerItemModel.BEER_MARCA_COLUMN)),
             cursor.getDouble(cursor.getColumnIndex(BeerItemModel.BEER_VALOR_COLUMN)),
-            cursor.getDouble(cursor.getColumnIndex(BeerItemModel.BEER_TAMANHO_COLUMN))
+            cursor.getInt(cursor.getColumnIndex(BeerItemModel.BEER_TAMANHO_COLUMN))
         )
         val beerItem = BeerItemModel(
             beer
@@ -88,5 +88,16 @@ class DBHelper (context: Context): SQLiteOpenHelper(context, DB_NAME, null, 1) {
         db.delete(BeerItemModel.BEER_LIST_NAME, BeerItemModel.BEER_ID_COLUMN + " > ?",
         arrayOf("0"))
         db.close()
+    }
+
+    fun updateBeerItem(beerItemModel: BeerItemModel): Int {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(BeerItemModel.BEER_MARCA_COLUMN, beerItemModel.beerMarca)
+        values.put(BeerItemModel.BEER_VALOR_COLUMN, beerItemModel.beerValor)
+        values.put(BeerItemModel.BEER_TAMANHO_COLUMN, beerItemModel.beerTamanho)
+
+        return db.update(BeerItemModel.BEER_LIST_NAME, values, BeerItemModel.BEER_ID_COLUMN + " = ?",
+        arrayOf(beerItemModel.beerId.toString()))
     }
 }

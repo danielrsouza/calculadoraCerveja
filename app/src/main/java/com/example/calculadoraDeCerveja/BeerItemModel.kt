@@ -5,7 +5,7 @@ class BeerItemModel {
     var beerId: Int = 0;
     var beerMarca: String? = null
     var beerValor: Double = 0.0
-    var beerTamanho: Double = 0.0
+    var beerTamanho: Int = 0
 
     constructor()
 
@@ -29,7 +29,7 @@ class BeerItemModel {
                 + BEER_ID_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + BEER_MARCA_COLUMN + " TEXT,"
                 + BEER_VALOR_COLUMN + " DOUBLE,"
-                + BEER_TAMANHO_COLUMN + " DOUBLE"
+                + BEER_TAMANHO_COLUMN + " INTEGER"
                 + ")" )
     }
 }

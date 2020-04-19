@@ -30,6 +30,6 @@ class BeerItemAdapter(private val context: Context, private val beerList: List<B
 
         holder.beerMarca.setText("Marca: "+beerItem.beerMarca)
         holder.beerValor.setText("R$ "+beerItem.beerValor.toString())
-        holder.beerTamanho.setText("ML "+beerItem.beerTamanho.toString())
+        holder.beerTamanho.setText("Tamanho: "+beerItem.beerTamanho.toString() + " ML")
     }
 }
