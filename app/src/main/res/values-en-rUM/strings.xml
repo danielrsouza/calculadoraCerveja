@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Beer Calculator</string>
+    <string name="tituloOpcao">Choose an Option</string>
+    <string name="excluirTudo">Delete all beers</string>
+    <string name="excluir">Delete Beer</string>
+    <string name="toastError">Error loading action</string>
+    <string name="toastMarca">The tag cannot be empty.</string>
+    <string name="cancelar">Cancel</string>
+    <string name="salvar">Save</string>
+    <string name="atualizar">Update Beer</string>
+    <string name="editar">Edit a Beer</string>
+    <string name="adiciona">Add a Beer!</string>
+    <string name="text_hint_medida">Measure</string>
+    <string name="text_hint_valor">Value</string>
+    <string name="text_hint_marca">Brand</string>
+    <string name="adicione_cerveja" translatable="false">Add A Beer!</string>
+</resources>

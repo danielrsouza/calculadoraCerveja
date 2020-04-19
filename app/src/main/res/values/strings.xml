@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Calculadora De Cerveja</string>
     <string name="adicione_cerveja">Adicione Uma Cerveja!</string>
 
     <!-- Hints -->
@@ -8,9 +7,9 @@
     <string name="text_hint_medida">Medida</string>
 
     <!-- Ações -->
-    <string name="adiciona">Adicione uma cerveja!</string>
-    <string name="editar">Edite uma cerveja!</string>
-    <string name="atualizar">Atualizar cerveja</string>
+    <string name="adiciona">Adicione uma Cerveja!</string>
+    <string name="editar">Edite uma Cerveja!</string>
+    <string name="atualizar">Atualizar Cerveja</string>
     <string name="salvar">Salvar</string>
     <string name="cancelar">Cancelar</string>
 
@@ -22,4 +21,5 @@
     <string name="excluir">Excluir Cerveja</string>
     <string name="excluirTudo">Excluir todas as cervejas</string>
     <string name="tituloOpcao">Escolha uma Opção</string>
+    <string name="app_name">Calculadora de Cerveja</string>
 </resources>
