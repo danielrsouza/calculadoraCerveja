@@ -1,5 +1,6 @@
 package com.example.calculadoraDeCerveja
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.Color.WHITE
 import androidx.appcompat.app.AppCompatActivity
@@ -55,9 +56,56 @@ class MainActivity : AppCompatActivity() {
         recyclerView!!.layoutManager = layoutManager
         recyclerView!!.itemAnimator = DefaultItemAnimator()
         recyclerView!!.adapter = adapter
+
+        //Funcao de clique longo
+        recyclerView!!.addOnItemTouchListener(
+            ItemLongPressListener(
+                this,
+                recyclerView!!,
+                object : ItemLongPressListener.ClickListener {
+                    override fun onClick(view: View, position: Int) {
+                        TODO("Not yet implemented")
+                    }
+
+                    override fun onLongClick(view: View?, position: Int) {
+                        showActionsDialog(position)
+                    }
+
+                }
+        ))
     }
 
-    private fun showDialog(isUpdate: Boolean, nothing: Nothing?, position: Int) {
+    private fun showActionsDialog(position: Int) {
+        val options = arrayOf<CharSequence>(getString(R.string.editar),
+        getString(R.string.excluir), getString(R.string.excluirTudo))
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(getString(R.string.tituloOpcao))
+        builder.setItems(options){
+            dialog, itemIndex ->
+                when(itemIndex) {
+                    0 -> showDialog(true, beersList[position], position)
+                    1 -> deleteBeerItem(position)
+                    2 -> deleteAllItens()
+                    else -> Toast.makeText(applicationContext, getString(R.string.toastError), Toast.LENGTH_SHORT).show()
+                }
+        }
+        builder.show()
+
+    }
+
+    private fun deleteBeerItem(position: Int) {
+        db!!.deleteBeerItem(beersList[position])
+        beersList.removeAt(position)
+        adapter!!.notifyItemRemoved(position)
+    }
+
+    private fun deleteAllItens() {
+        db!!.deleteAllBeer()
+        beersList.removeAll(beersList)
+        adapter!!.notifyDataSetChanged()
+    }
+
+    private fun showDialog(isUpdate: Boolean, beerItemModel: BeerItemModel?, position: Int) {
         val layoutInflaterAndroid = LayoutInflater.from(applicationContext)
         val view = layoutInflaterAndroid.inflate(R.layout.beer_dialog, null)
 

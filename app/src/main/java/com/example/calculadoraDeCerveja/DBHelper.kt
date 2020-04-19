@@ -74,4 +74,19 @@ class DBHelper (context: Context): SQLiteOpenHelper(context, DB_NAME, null, 1) {
         cursor.close()
         return beerItem
     }
+
+    fun deleteBeerItem(beerItemModel: BeerItemModel) {
+        val db = writableDatabase
+        db.delete(BeerItemModel.BEER_LIST_NAME, BeerItemModel.BEER_ID_COLUMN + " = ?",
+        arrayOf(beerItemModel.beerId.toString()))
+        db.close()
+    }
+
+    fun deleteAllBeer()
+    {
+        val db = writableDatabase
+        db.delete(BeerItemModel.BEER_LIST_NAME, BeerItemModel.BEER_ID_COLUMN + " > ?",
+        arrayOf("0"))
+        db.close()
+    }
 }

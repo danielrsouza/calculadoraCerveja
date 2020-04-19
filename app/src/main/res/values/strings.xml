@@ -1,13 +1,25 @@
 <resources>
     <string name="app_name">Calculadora De Cerveja</string>
-    <string name="adicione_cerveja">Adicione uma cerveja!</string>
+    <string name="adicione_cerveja">Adicione Uma Cerveja!</string>
+
+    <!-- Hints -->
     <string name="text_hint_marca">Marca</string>
     <string name="text_hint_valor">Valor</string>
     <string name="text_hint_medida">Medida</string>
+
+    <!-- Ações -->
     <string name="adiciona">Adicione uma cerveja!</string>
     <string name="editar">Edite uma cerveja!</string>
     <string name="atualizar">Atualizar cerveja</string>
     <string name="salvar">Salvar</string>
     <string name="cancelar">Cancelar</string>
-    <string name="toastMarca">A marca não pode ser vazia.</string>
+
+    <!-- Toasts -->
+    <string name="toastMarca">A Marca Não Pode Ser Vazia.</string>
+    <string name="toastError">Erro ao Carregar a Ação</string>
+
+    <!-- Ações Toque Longo -->
+    <string name="excluir">Excluir Cerveja</string>
+    <string name="excluirTudo">Excluir todas as cervejas</string>
+    <string name="tituloOpcao">Escolha uma Opção</string>
 </resources>

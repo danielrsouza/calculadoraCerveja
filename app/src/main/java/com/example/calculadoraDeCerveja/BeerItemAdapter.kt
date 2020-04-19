@@ -28,8 +28,8 @@ class BeerItemAdapter(private val context: Context, private val beerList: List<B
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val beerItem = beerList[position]
 
-        holder.beerMarca.setText(beerItem.beerMarca)
-        holder.beerValor.setText(beerItem.beerValor.toString())
-        holder.beerTamanho.setText(beerItem.beerTamanho.toString())
+        holder.beerMarca.setText("Marca: "+beerItem.beerMarca)
+        holder.beerValor.setText("R$ "+beerItem.beerValor.toString())
+        holder.beerTamanho.setText("ML "+beerItem.beerTamanho.toString())
     }
 }
