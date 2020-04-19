@@ -15,4 +15,12 @@
     <string name="text_hint_valor">Value</string>
     <string name="text_hint_marca">Brand</string>
     <string name="adicione_cerveja" translatable="false">Add A Beer!</string>
+    <string name="marcaEmConta">Cheaper beer</string>
+    <string name="precoEmConta">Cheapest price</string>
+    <string name="tamanhoEmConta">Cheapest size</string>
+    <string name="diferencaLitro">Value to reach one liter</string>
+    <string name="adicioneCervejaDescription">Add a beer</string>
+    <string name="marcaDaCerveja">Enter the brand of beer</string>
+    <string name="valorDaCerveja">Enter the value of beer</string>
+    <string name="tamanhoDaCerveja">Enter the size of the beer</string>
 </resources>

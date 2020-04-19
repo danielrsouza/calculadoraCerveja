@@ -34,8 +34,11 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar);
 
         controle()
+        calculoCerveja(beersList)
+
     }
 
+    // Controla o que vai aparecer
     private fun controle() {
         coordinatorLayout = findViewById(R.id.layout_main)
         recyclerView = findViewById(R.id.recycler_main)
@@ -69,10 +72,12 @@ class MainActivity : AppCompatActivity() {
 
                 }
         ))
-
         calculoCerveja(beersList)
+
+
     }
 
+    // Mostra as ações ao ter um clique longo
     private fun showActionsDialog(position: Int) {
         val options = arrayOf<CharSequence>(getString(R.string.editar),
         getString(R.string.excluir), getString(R.string.excluirTudo))
@@ -91,18 +96,23 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    // Delete uma cerveja
     private fun deleteBeerItem(position: Int) {
         db!!.deleteBeerItem(beersList[position])
         beersList.removeAt(position)
         adapter!!.notifyItemRemoved(position)
+        calculoCerveja(beersList)
     }
 
+    // Deleta todas as cervejas
     private fun deleteAllItens() {
         db!!.deleteAllBeer()
         beersList.removeAll(beersList)
         adapter!!.notifyDataSetChanged()
+        calculoCerveja(beersList)
     }
 
+    // Funcao que cria o dialog para inserir uma beer
     private fun showDialog(isUpdate: Boolean, beerItemModel: BeerItemModel?, position: Int) {
         val layoutInflaterAndroid = LayoutInflater.from(applicationContext)
         val view = layoutInflaterAndroid.inflate(R.layout.beer_dialog, null)
@@ -129,7 +139,13 @@ class MainActivity : AppCompatActivity() {
             if (TextUtils.isEmpty(marca.text.toString())){
                 Toast.makeText(this@MainActivity, getString(R.string.toastMarca), Toast.LENGTH_SHORT).show()
                 return@OnClickListener
-            } else {
+            } else if (TextUtils.isEmpty(valor.text.toString())) {
+                Toast.makeText(this@MainActivity, "O valor não pode ser vazio", Toast.LENGTH_SHORT).show()
+                return@OnClickListener
+            } else if (TextUtils.isEmpty(tamanho.text.toString())) {
+                Toast.makeText(this@MainActivity, "O tamanho não pode ser vazio", Toast.LENGTH_SHORT).show()
+                return@OnClickListener
+            }else {
                 alertDialog.dismiss()
             }
 
@@ -137,9 +153,13 @@ class MainActivity : AppCompatActivity() {
             createBeerItem(beer)
 
         })
+
+        calculoCerveja(beersList)
     }
 
+    // Função que cria um Beer Item
     private fun createBeerItem(beer:Beer) {
+
         val item = db!!.insertBeerItem(beer)
         val novoItem = db!!.getBeerItem(item)
 
@@ -147,12 +167,27 @@ class MainActivity : AppCompatActivity() {
             beersList.add(0, novoItem)
             adapter!!.notifyDataSetChanged()
         }
+
     }
 
+    // Lógica de calculo da cerveja mais em conta
     private fun calculoCerveja(beerList: ArrayList<BeerItemModel>) {
         var melhorPreco = 999.0
+
+        if (beersList.size == 0) {
+            marcaEmConta.text = ""
+            precoEmConta.text = ""
+            tamanhoEmConta.text = ""
+            diferenca.text = ""
+        }
+
         for( beer in beerList) {
             val mediaPreco = (beer.beerValor/beer.beerTamanho) * 1000
+            melhorPreco = mediaPreco
+            marcaEmConta.text = "Marca: " + beer.beerMarca
+            precoEmConta.text = "Preço: R$ " + beer.beerValor.toString()
+            tamanhoEmConta.text = "Tamanho: " + beer.beerTamanho.toString() + " ML"
+            diferenca.text = "Preço do Litro: " + "%.2f".format(melhorPreco.toString().toDouble()) + " L"
 
             if (mediaPreco < melhorPreco) {
                 melhorPreco = mediaPreco
@@ -164,10 +199,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setSupportActionBar(toolbar: Toolbar) {
-
-    }
-
-
+    private fun setSupportActionBar(toolbar: Toolbar) {}
 }
 

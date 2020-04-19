@@ -18,7 +18,8 @@
         android:textAlignment="center"
         android:textColor="@android:color/background_dark"
         android:textSize="@dimen/fontsizeTitulo"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:contentDescription="@string/adicioneCervejaDescription"/>
 
     <EditText
         android:id="@+id/editTextMarca"
@@ -33,7 +34,9 @@
         android:textColor="@android:color/background_light"
         android:textColorHint="@android:color/background_light"
         android:textSize="@dimen/fontsizeCampos"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:contentDescription="@string/marcaDaCerveja"
+        />
 
     <EditText
         android:id="@+id/editTextValor"
@@ -48,7 +51,8 @@
         android:textColor="@android:color/background_light"
         android:textColorHint="@android:color/background_light"
         android:textSize="@dimen/fontsizeCampos"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:contentDescription="@string/valorDaCerveja"/>
 
     <EditText
         android:id="@+id/editTextMedida"
@@ -63,6 +67,7 @@
         android:textColor="@android:color/background_light"
         android:textColorHint="@android:color/background_light"
         android:textSize="@dimen/fontsizeCampos"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:contentDescription="@string/tamanhoDaCerveja"/>
 
 </LinearLayout>

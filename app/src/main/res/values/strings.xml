@@ -22,4 +22,14 @@
     <string name="excluirTudo">Excluir todas as cervejas</string>
     <string name="tituloOpcao">Escolha uma Opção</string>
     <string name="app_name">Calculadora de Cerveja</string>
+
+    <!-- Acessibilidade -->
+    <string name="marcaEmConta">Cerveja mais barata</string>
+    <string name="precoEmConta">Preco mais barato</string>
+    <string name="tamanhoEmConta">Tamanho mais barato</string>
+    <string name="diferencaLitro">Valor para chegar a um litro</string>
+    <string name="adicioneCervejaDescription">Adicione uma cerveja</string>
+    <string name="marcaDaCerveja">Digite a marca da cerveja</string>
+    <string name="valorDaCerveja">Digite o valor da cerveja</string>
+    <string name="tamanhoDaCerveja">Digite o tamanho da cerveja</string>
 </resources>

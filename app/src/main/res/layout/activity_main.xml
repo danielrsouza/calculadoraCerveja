@@ -30,41 +30,43 @@
                 android:id="@+id/marcaEmConta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView"
                 android:textAlignment="center"
                 android:textColor="@color/cardview_light_background"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:contentDescription="@string/marcaEmConta"/>
 
             <TextView
                 android:id="@+id/precoEmConta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_light"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:contentDescription="@string/precoEmConta"/>
 
             <TextView
                 android:id="@+id/tamanhoEmConta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_light"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:contentDescription="@string/tamanhoEmConta"
+                />
 
             <TextView
                 android:id="@+id/diferenca"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_light"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:contentDescription="@string/diferencaLitro"
+                />
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
